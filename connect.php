@@ -11,7 +11,7 @@ $database = 'phpconn-database';
 $port = 3306;
 
 // Establish a connection
-$conn = new mysqli($host, $username, $password, $database, $port, MYSQLI_CLIENT_SSL);
+$conn = new mysqli($host, $username, $password, $database, $port);
 
 // Check connection
 if ($conn->connect_error) {
