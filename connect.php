@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 $host = 'phpconn-server.mysql.database.azure.com';
 $username = 'sqygkkdded';
 $password = 'farhan@1234';
-$database = 'deploytest-1-database';
+$database = 'phpconn-database';
 $port = 3306;
 
 // Establish a connection
