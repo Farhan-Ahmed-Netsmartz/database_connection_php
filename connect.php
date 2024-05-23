@@ -6,6 +6,7 @@
 	$password = $_POST['password'];
 	$number = $_POST['number'];
 
+	echo "$firstName"
 	// Database credentials
 	$host = 'phpconn-server.mysql.database.azure.com';
 	$username = 'sqygkkdded';
