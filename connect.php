@@ -6,8 +6,19 @@
 	$password = $_POST['password'];
 	$number = $_POST['number'];
 
+	// Database credentials
+	$host = 'phpconn-server.mysql.database.azure.com';
+	$username = 'sqygkkdded';
+	$password = 'farhan@1234';
+	$database = 'phpconn-database';
+	$port = 3306;
+	
+	// Establish a connection
+	$conn = new mysqli($host, $username, $password, $database, $port, MYSQLI_CLIENT_SSL);
+
+
 	// Database connection
-	$conn = new mysqli('phpconn-server.mysql.database.azure.com','sqygkkdded','farhan@1234','deploytest-1-database', MYSQLI_CLIENT_SSL);
+	//$conn = new mysqli('phpconn-server.mysql.database.azure.com','sqygkkdded','farhan@1234','deploytest-1-database', MYSQLI_CLIENT_SSL);
 	if($conn->connect_error){
 		echo "$conn->connect_error";
 		die("Connection Failed : ". $conn->connect_error);
