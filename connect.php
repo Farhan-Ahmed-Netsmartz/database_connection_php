@@ -7,7 +7,7 @@
 	$number = $_POST['number'];
 
 	// Database connection
-	$conn = new mysqli('phpconn-server.mysql.database.azure.com','sqygkkdded','farhan@1234','deploytest-1-database');
+	$conn = new mysqli('phpconn-server.mysql.database.azure.com','sqygkkdded','farhan@1234','deploytest-1-database', MYSQLI_CLIENT_SSL);
 	if($conn->connect_error){
 		echo "$conn->connect_error";
 		die("Connection Failed : ". $conn->connect_error);
