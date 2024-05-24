@@ -4,20 +4,27 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Database credentials
-$host = 'phpconn-server.mysql.database.azure.com';
-$username = 'sqygkkdded';
+$host = 'php-pipeline-server.mysql.database.azure.com';
+$username = 'phpadmin';
 $password = 'farhan@1234';
-$database = 'phpconn-database';
+$database = 'test';
 $port = 3306;
 
+$ssl_ca = 'DigiCertGlobalRootCA.crt.pem';
 // Establish a connection
-$conn = new mysqli($host, $username, $password, $database, $port);
+// Create a new mysqli instance
+$conn = mysqli_init();
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Set SSL options
+$conn->ssl_set(NULL, NULL, $ssl_ca, NULL, NULL);
+
+// Connect with SSL
+if (!$conn->real_connect($host, $username, $password, $database, $port, NULL, MYSQLI_CLIENT_SSL)) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
+// Connection is successful
+echo "Connected successfully with SSL";
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $_POST['firstName'];
